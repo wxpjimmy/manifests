@@ -20,6 +20,8 @@ spec:
         env:
         - name: ALLOW_CUSTOM_VISUALIZATIONS
           value: "true"
+        - name: DISABLE_GKE_METADATA
+          value: "true"
         ports:
         - containerPort: 3000
       serviceAccountName: ml-pipeline-ui
