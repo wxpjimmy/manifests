@@ -25,5 +25,12 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.project
+- name: namespace
+  objref:
+    kind: Service
+    name: service
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.namespace
 configurations:
 - params.yaml

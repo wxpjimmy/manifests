@@ -17,5 +17,13 @@ configMapGenerator:
   env: params.env
 generatorOptions:
   disableNameSuffixHash: true
+vars:
+- name: namespace
+  objref:
+    apiVersion: v1
+    kind: ServiceAccount
+    name: spartakus
+  fieldref:
+    fieldPath: metadata.namespace
 configurations:
 - params.yaml

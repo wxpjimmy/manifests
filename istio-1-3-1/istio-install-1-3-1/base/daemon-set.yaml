@@ -78,6 +78,9 @@ spec:
         - mountPath: /var/run/sds
           name: sdsudspath
       serviceAccountName: istio-nodeagent-service-account
+      tolerations:
+      - key: "kf-partition"
+        operator: "Exists"
       volumes:
       - hostPath:
           path: /var/run/sds

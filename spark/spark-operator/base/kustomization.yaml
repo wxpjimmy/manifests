@@ -30,3 +30,15 @@ resources:
 - rolebinding.yaml
 - sparkapplications.sparkoperator.k8s.io-crd.yaml
 - scheduledsparkapplications.sparkoperator.k8s.io-crd.yaml
+
+vars:
+- fieldref:
+    fieldPath: metadata.namespace
+  name: namespace
+  objref:
+    apiVersion: v1
+    kind: ServiceAccount
+    name: operator-sa
+
+configurations:
+- params.yaml
