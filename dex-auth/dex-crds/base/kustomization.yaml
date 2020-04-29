@@ -2,7 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: auth
 resources:
-- namespace.yaml
 - config-map.yaml
 - crds.yaml
 - deployment.yaml
@@ -76,6 +75,27 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.application_secret
+- name: microsoft_client_id
+  objref:
+    kind: ConfigMap
+    name: dex-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.microsoft_client_id
+- name: microsoft_secret
+  objref:
+    kind: ConfigMap
+    name: dex-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.microsoft_secret
+- name: microsoft_tenant
+  objref:
+    kind: ConfigMap
+    name: dex-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.microsoft_tenant
 configurations:
 - params.yaml
 images:
